@@ -7,7 +7,9 @@ authors = ["GosuOoops <evgenii_neo@mail.ru>"]
 [tool.poetry.dependencies]
 python = "^3.11"
 pyyaml = "^6.0"
-flask = "*"
+flask  = "^2.3"
+sqlalchemy = "^2.0"
+psycopg2 = "^2.9"
 
 [tool.poetry.group.dev]
 optional = true

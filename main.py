@@ -21,22 +21,11 @@ class ClientNotFoundError(AuthorizationError):
 
 class Permissions:
     def __init__(self, create=False, read=False, update=False, delete=False):
-        self._create = create
-        self._read = read
-        self._update = update
-        self._delete = delete
-    @property
-    def create(self):
-        return self._create
-    @property
-    def read(self):
-        return self._read
-    @property
-    def update(self):
-        return self._update
-    @property
-    def delete(self):
-        return self._delete
+        self.create = create
+        self.read = read
+        self.update = update
+        self.delete = delete
+
     @property
     def get_obj(self):
         return {
@@ -48,14 +37,10 @@ class Permissions:
 
 class Role:
     def __init__(self, name, permissions_dict):
-        self._name = name
+        self.name = name
         self._role = {}
         for key, value in permissions_dict.items():
             self._role[key] = Permissions(**value)
-
-    @property
-    def name(self):
-        return self._name
 
     def __contains__(self, key):
         return key in self._role

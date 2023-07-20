@@ -2,16 +2,19 @@ version: "3.4"
 services:
   docker:
     container_name: docker-compose
-    build: ./dockerfile
+    build:
+      context: .
+      dockerfile: dockerfile
     ports:
       - "5000:5000"
     restart:
       always
 
   nginx:
-    image: nginx:latest
     container_name: nginx
-    build: ./dockerfile-nginx
+    build: 
+      context: .
+      dockerfile: dockerfile-nginx
     volumes:
       - ./somevol:/app2:rw
       - ./logs:/var/log/nginx

@@ -26,6 +26,12 @@
     groups: docker
     append: yes
 
+- name: build container image
+  become: true
+  command:
+    cmd: "docker-compose build --no-cache"
+    chdir: /home/authz/git
+
 - name: Run container
   become: true
   command:

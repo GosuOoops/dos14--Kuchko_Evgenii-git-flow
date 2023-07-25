@@ -1,88 +1,143 @@
 authn:
-  identities:
+  Credits:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Deposits:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Identities:
     create: true
     delete: true
     read: true
     update: true
-  organisations:
+  Organisations:
     create: true
     delete: true
     read: true
     update: true
-  users:
+  Users:
     create: true
     delete: true
     read: true
     update: true
+  Creditaccounts:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Debitaccounts:
+    create: false
+    delete: false
+    read: false
+    update: false
 bank:
-  creditaccounts:
+  Credits:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Deposits:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Creditaccounts:
     create: false
     delete: false
     read: true
     update: true
-  debitaccounts:
+  Debitaccounts:
     create: false
     delete: false
     read: true
     update: true
+  Identities:
+    create: false
+    delete: false
+    read: true
+    update: false
+  Organisations:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Users:
+    create: false
+    delete: false
+    read: false
+    update: false
 credit_and_deposit_users:
-  credits:
+  Credits:
     create: true
     delete: false
     read: true
     update: false
-  creditaccounts:
+  Creditaccounts:
     create: true
     delete: false
     read: true
     update: false
-  debitaccounts:
+  Debitaccounts:
     create: true
     delete: false
     read: true
     update: false
-  deposits:
+  Deposits:
     create: true
     delete: false
     read: true
     update: false
-  identities:
+  Identities:
     create: false
     delete: false
     read: true
     update: true
+  Organisations:
+    create: false
+    delete: false
+    read: false
+    update: false
+  Users:
+    create: false
+    delete: false
+    read: false
+    update: false
 default:
-  credits:
+  Credits:
     create: false
     delete: false
     read: false
     update: false
-  creditaccounts:
+  Creditaccounts:
     create: false
     delete: false
     read: false
     update: false
-  debitaccounts:
+  Debitaccounts:
     create: true
     delete: false
     read: true
     update: false
-  deposits:
+  Deposits:
     create: true
     delete: false
     read: true
     update: false
-  identities:
+  Identities:
     create: false
     delete: false
     read: true
     update: true
-  organisations:
+  Organisations:
     create: false
     delete: false
     read: false
     update: false
-  users:
+  Users:
     create: false
     delete: false
     read: false

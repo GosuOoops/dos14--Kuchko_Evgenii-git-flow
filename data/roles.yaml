@@ -1,3 +1,40 @@
+#hui:
+#  Credits:
+#    create: false
+#    delete: false
+#    read: false
+#    update: false
+#  Deposits:
+#    create: false
+#    delete: false
+#    read: false
+#    update: false
+#  Identities:
+#    create: true
+#    delete: true
+#    read: true
+#    update: true
+#  Organisations:
+#    create: true
+#    delete: true
+#    read: true
+#    update: true
+#  Users:
+#    create: true
+#    delete: true
+#    read: true
+#    update: true
+#  Creditaccounts:
+#    create: false
+#    delete: false
+#    read: false
+#    update: false
+#  Debitaccounts:
+#    create: false
+#    delete: false
+#    read: false
+#    update: false
+#
 authn:
   Credits:
     create: false

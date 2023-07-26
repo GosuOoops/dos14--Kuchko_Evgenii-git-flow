@@ -5,6 +5,7 @@
     dest: /home/authz/git
     version: "{{ git_branch }}"
     force: yes
+  register: gitclone
 
 - name: install pip
   become: true
@@ -25,6 +26,13 @@
     name: authz
     groups: docker
     append: yes
+
+- name: build container image
+  become: true
+  command:
+    cmd: "docker-compose build --no-cache"
+    chdir: /home/authz/git
+  when: gitclone.changed
 
 - name: Run container
   become: true

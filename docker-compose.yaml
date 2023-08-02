@@ -24,3 +24,11 @@ services:
       always
     depends_on:
       - docker
+
+  db:
+    image: 'postgres:latest'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: .env
+    restart: always
+  

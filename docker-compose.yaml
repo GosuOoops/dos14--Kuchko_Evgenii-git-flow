@@ -26,9 +26,15 @@ services:
       - docker
 
   db:
-    image: 'postgres:${TAG}'
+    image: 'postgres:latest'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB:       ${POSTGRES_DB}
+      POSTGRES_USER:     ${POSTGRES_USR}
+      POSTGRES_PASSWORD: ${POSTGRES_PWD}  
+      POSTGRES_PORT:     ${POSTGRES_PORT}
+      POSTGRES_HOST:     ${POSTGRES_HOST}
     restart: always
 
 volumes:

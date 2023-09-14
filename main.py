@@ -12,7 +12,7 @@ from psycopg2.errors import NotNullViolation, UniqueViolation
 app = Flask(__name__)
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = f"postgresql://{config.POSTGRES_USER}:{config.POSTGRES_USER}@{config.POSTGRES_HOST}:{config.POSTGRES_PORT}/{config.PG_DATABASE}"
+] = f"postgresql://{config.POSTGRES_USER}:{config.POSTGRES_USER}@{config.POSTGRES_HOST}:{config.POSTGRES_PORT}/{config.POSTGRES_DB}"
 db = SQLAlchemy(app)
 
 

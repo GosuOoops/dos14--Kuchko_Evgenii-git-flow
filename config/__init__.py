@@ -7,7 +7,7 @@ class ConfigException(Exception):
 
 def check_config():
     if not (
-        PG_DATABASE
+        POSTGRES_DB
         and POSTGRES_USER
         and POSTGRES_PASSWORD
         and POSTGRES_PORT
@@ -15,7 +15,7 @@ def check_config():
     ):
         raise ConfigException(
             """
-            PG_DATABASE
+            POSTGRES_DB
             POSTGRES_USER
             POSTGRES_PASSWORD
             POSTGRES_PORT
@@ -29,6 +29,6 @@ POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 POSTGRES_USER = os.getenv("POSTGRES_USER")
-PG_DATABASE = os.getenv("PG_DATABASE")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
 
 check_config()

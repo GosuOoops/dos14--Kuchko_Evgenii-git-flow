@@ -1,4 +1,5 @@
 - name: Set environment variables
+  become: true
   template:
     src: .env
     dest: ../docker-compose.yaml

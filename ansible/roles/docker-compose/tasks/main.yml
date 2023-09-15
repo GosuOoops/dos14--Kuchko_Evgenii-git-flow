@@ -3,7 +3,7 @@
     become_user: root
     ansible.builtin.copy:
         src: ../.env
-        dest: /conf/.env
+        dest: /tmp/.env
         owner: root
         group: root
         mode: '0755'

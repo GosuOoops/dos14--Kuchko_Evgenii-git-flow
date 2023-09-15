@@ -1,12 +1,3 @@
-- name: Set environment variables
-  become: true
-  template:
-    src: .env
-    dest: ../docker-compose.yaml
-    owner: root
-    group: root
-    mode: '0644'
-    
 - name: Clone repository git
   become: true
   git:

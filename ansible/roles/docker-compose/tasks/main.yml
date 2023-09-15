@@ -1,13 +1,3 @@
-  - name: Copy file .env
-    become: true
-    become_user: root
-    ansible.builtin.copy:
-        src: ../.env
-        dest: /tmp/.env
-        owner: root
-        group: root
-        mode: '0755'
-
 - name: Clone repository git
   become: true
   git:

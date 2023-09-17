@@ -7,13 +7,15 @@ services:
       dockerfile: dockerfile
     ports:
       - "5000:5000"
-#    env_file: .env
+    env_file: .env
     environment:
       POSTGRES_DB:       ${POSTGRES_DB}
       POSTGRES_USER:     ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}  
       POSTGRES_PORT:     ${POSTGRES_PORT}
       POSTGRES_HOST:     ${POSTGRES_HOST}
+    volumes:
+      - ./.env:/opt/app/.env
     restart:
       always
     depends_on:
@@ -38,7 +40,7 @@ services:
     image: 'postgres:latest'
     volumes:
       - postgres_data:/var/lib/postgresql/data
-#    env_file: .env
+    env_file: .env
     environment:
       POSTGRES_DB:       ${POSTGRES_DB}
       POSTGRES_USER:     ${POSTGRES_USER}

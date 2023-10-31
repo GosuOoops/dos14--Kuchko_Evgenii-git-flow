@@ -3,10 +3,10 @@ pipeline {
     stages {
       stage('Lint') {
         agent {
-            docker {
-                image 'python:3.11.3-buster'
-                args '-u 0'
-            }
+           docker {
+             image 'python:3.11.3-buster'
+             args '-u 0'
+           }
         }
         when {
           anyOf {

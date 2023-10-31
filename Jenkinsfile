@@ -1,20 +1,33 @@
 pipeline {
-    agent any
+  agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+      stage('Lint') {
+        agent {
+            docker {
+                image 'python:3.11.3-buster'
+                args '-u 0'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+        steps {
+          sh "pip install poetry"
+          sh "poetry install --with dev"
+          sh "poetry run -- black --check *.py"
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+      }
+      stage('Build') {
+      when {
+        anyOf {
+          branch pattern: "feature-CI"  
         }
+      }
+      steps {
+        script {
+          def image = docker.build "gosuooops/dos14-authz:${env.GIT_COMMIT}"
+          docker.withRegistry('','dockerhub-ev') {
+            image.push()
+          }
+        }
+      }
     }
+  }
 }

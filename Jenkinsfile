@@ -10,8 +10,8 @@ pipeline {
         }
         when {
           anyOf {
-            branch pattern: "feature*"
-            branch pattern: "fix*"
+            branch pattern: "feature-*"
+            branch pattern: "fix-*"
           }
         }
         steps {

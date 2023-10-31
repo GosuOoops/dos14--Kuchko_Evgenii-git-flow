@@ -4,7 +4,7 @@ pipeline {
       stage('Lint') {
         agent {
           docker {
-            image 'python:3.11.3-buster'
+            image 'python:3.11'
             args '-u 0'
           }
         }

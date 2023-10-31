@@ -1,4 +1,4 @@
-FROM python:3.11-buster
+FROM python:3.11.3-buster
 RUN groupadd --gid 5000 authz \
     && useradd --home-dir /home/authz/ --create-home --uid 5000 \
         --gid 5000 --shell /bin/sh --skel /dev/null authz

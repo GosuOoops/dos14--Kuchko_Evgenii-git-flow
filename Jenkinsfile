@@ -8,6 +8,12 @@ pipeline {
                 args '-u 0'
             }
         }
+        when {
+          anyOf {
+            branch pattern: "feature*"
+            branch pattern: "fix*"
+          }
+        }
         steps {
           sh "pip install poetry"
           sh "poetry install --with dev"

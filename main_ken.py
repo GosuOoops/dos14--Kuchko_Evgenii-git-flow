@@ -63,6 +63,7 @@ class Role:
             permissions[key] = value.get_obj
         return {"name": self._name, "permissions": permissions}
 
+
 class Client:
     def __init__(self, client_id, role):
         self._client_id = client_id
@@ -71,6 +72,7 @@ class Client:
     @property
     def client_id(self):
         return self._client_id
+
     @property
     def role(self):
         return self._role
@@ -139,6 +141,7 @@ class Organisation(Client):
     @property
     def name(self):
         return self._name
+
     @property
     def get_obj(self):
         return {
@@ -401,6 +404,7 @@ def create_user():
             500,
         )
 
+
 @app.route("/api/v1/organisations", methods=["PUT"])
 def create_organisation():
     try:
@@ -458,6 +462,7 @@ def create_organisation():
             ),
             500,
         )
+
 
 @app.route("/api/v1/credits/authz/<string:action>", methods=["GET"])
 @app.route("/api/v1/deposits/authz/<string:action>", methods=["GET"])

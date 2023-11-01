@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
+
 import json
+
 app = Flask(__name__)
+
 
 @app.route("/api/v1/users/<int:client_id>", methods=["GET"])
 def get_user(client_id):
@@ -18,6 +21,7 @@ def get_user(client_id):
         return jsonify({"status": "success", "client_id": client_id})
     except:
         return jsonify({"status": "error", "message": f"Invalid header token"}), 400
+
 
 if __name__ == "__main__":
     app.run()

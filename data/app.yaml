@@ -1,7 +1,0 @@
-Apps:
-- client_id: -1
-  name: authn
-  role: authn
-- client_id: -2
-  name: bank
-  role: bank

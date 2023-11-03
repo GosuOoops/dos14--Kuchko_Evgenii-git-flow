@@ -23,7 +23,7 @@ pipeline {
       stage('Build') {
       when {
         anyOf {
-          branch pattern: "feature-CI-new"  
+          branch pattern: "master"  
         }
       }
       steps {

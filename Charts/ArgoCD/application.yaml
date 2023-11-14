@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gigachad-bank
+  name: gigachad-authz
   finalizers:
     #- resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,7 +13,7 @@ spec:
     helm:
       valueFiles:
         - /charts/authz/values.yaml
-      releaseName: gigachad-bank
+      releaseName: gigachad-authz
   destination:
     namespace: gigachad
     name: in-cluster

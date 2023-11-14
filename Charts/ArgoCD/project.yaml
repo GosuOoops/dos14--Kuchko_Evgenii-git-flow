@@ -13,6 +13,7 @@ spec:
   # Allow manifests to deploy from any Git repos
   sourceRepos:
     - 'https://github.com/GosuOoops/dos14--Kuchko_Evgenii-git-flow.git'
+    - 'https://github.com/slambeat/dos14--zhuravel_dmitriy-git-flow.git'
 
   # Only permit applications to deploy to the omegabank namespace in the same cluster
   # Destination clusters can be identified by 'server', 'name', or both.

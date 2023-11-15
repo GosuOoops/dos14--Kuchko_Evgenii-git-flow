@@ -40,7 +40,7 @@ pipeline {
         }
        }
       steps {
-        sh "git checkout feature-CD"
+        sh "git checkout feature-helm-CD"
         sh "git config --global pull.rebase true"
         sh "git pull origin"
         script {

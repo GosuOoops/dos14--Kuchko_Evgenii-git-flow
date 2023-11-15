@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: gosuooops/dos14-authz
   pullPolicy: IfNotPresent
-  tag: 3991307e94ce3a9db807a7eec22732c60d7e0062
+  tag: 339faa036722601916788dd19e17376b1c84c10c
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''

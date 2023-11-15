@@ -41,7 +41,7 @@ pipeline {
         expression {
           build == "${env.GIT_COMMIT}" &&  "${env.BRANCH_NAME}" == "master"
         }
-       }
+      }
       steps {
         sh "git checkout feature-helm-CD"
         sh "git config --global pull.rebase true"

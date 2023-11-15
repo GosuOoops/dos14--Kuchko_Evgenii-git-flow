@@ -31,8 +31,11 @@ pipeline {
           def image = docker.build "gosuooops/dos14-authz:${env.GIT_COMMIT}"
           docker.withRegistry('','dockerhub-ev') {
             image.push()
+          build = "${env.GIT_COMMIT}"  
           }
         }
+      }
+    }
     stage('Update Helm Chart') {
       when {
         expression {

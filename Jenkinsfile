@@ -23,7 +23,7 @@ pipeline {
       stage('Build') {
       when {
         anyOf {
-          branch pattern: "feature-helm-CD"  
+          branch pattern: "master"  
         }
       }
       steps {

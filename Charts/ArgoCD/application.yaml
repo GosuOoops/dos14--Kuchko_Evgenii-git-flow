@@ -12,7 +12,7 @@ spec:
     targetRevision: feature-helm-CD
     helm:
       valueFiles:
-        - /charts/authz/values.yaml
+        - /charts/authz/values_prd.yaml
       releaseName: gigachad-authz
   destination:
     namespace: gigachad

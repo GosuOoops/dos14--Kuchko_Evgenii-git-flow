@@ -47,7 +47,7 @@ pipeline {
         sh "git config --global pull.rebase true"
         sh "git pull origin"
         script {
-        def filename = 'charts/authz/values-aws-prd.yaml'
+        def filename = 'charts/authz/values_prd.yaml'
         def data = readYaml file: filename
 
         // Change something in the file

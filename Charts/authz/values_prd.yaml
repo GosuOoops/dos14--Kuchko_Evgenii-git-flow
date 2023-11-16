@@ -60,17 +60,17 @@ deployment:
         name: http
         protocol: TCP
   env:
-     name_base: POSTGRES_DB
+     name_base: PG_DATABASE
      name_base_value: gigachad
-     username_db: POSTGRES_USER
+     username_db: PG_USER
      usernameKeyRef:
        username: username
        password: password
        name: gigachad-db-creds
-     password: POSTGRES_PASSWORD
-     hostname: POSTGRES_HOST
+     password: PG_PASSWORD
+     hostname: PG_HOST
      hostname_value: omegabank-rds-tf.cearikylb8tb.eu-west-1.rds.amazonaws.com
-     port_name: POSTGRES_PORT
+     port_name: PG_PORT
      port_value: "5432"
   volume_configMap: nginx-config
 

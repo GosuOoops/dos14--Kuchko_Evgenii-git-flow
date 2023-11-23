@@ -33,7 +33,10 @@ ingress:
         path: /authz(.*)
         pathType: ImplementationSpecific
       port: 80
-  tls: []
+  tls: #[]
+    - secretName: gigachad
+      hosts:
+        - api.gigachad.smodata.net
 resources: {}
 autoscaling:
   enabled: false

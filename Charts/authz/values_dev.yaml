@@ -59,20 +59,25 @@ deployment:
         containerPort: 80
         name: http
         protocol: TCP
-  env:
-     name_base: PG_DATABASE
-     name_base_value: gigachad
-     username_db: PG_USER
-     usernameKeyRef:
-       username: username
-       password: password
-       name: gigachad-db-creds
-     password: PG_PASSWORD
-     hostname: PG_HOST
-     hostname_value: omegabank-rds-tf.cearikylb8tb.eu-west-1.rds.amazonaws.com
-     port_name: PG_PORT
-     port_value: "5432"
-  volume_configMap: nginx-config
+      volume_configMap: nginx-config
+        
+envs:
+  - name: PG_HOST
+    value: omegabank-rds-tf.cearikylb8tb.eu-west-1.rds.amazonaws.com
+  - name: PG_PORT
+    value: "5432"
+  - name: PG_DB
+    value: gigachad
+  - name: PG_USER
+    valueFrom:
+      secretKeyRef:
+        key: PG_USER
+        name: gigachad-db-creds
+  - name: PG_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        key: PG_PASSWORD
+        name: gigachad-db-creds
 
 labels:
   app: authz

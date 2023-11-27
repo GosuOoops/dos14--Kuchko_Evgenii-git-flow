@@ -4,7 +4,6 @@ metadata:
   name: {{ include "authz.name" . }}-nginx-config
   namespace: {{ .Release.Namespace }}
 data:
-data:
   nginx.conf: |-
     user nginx;
     worker_processes 4;

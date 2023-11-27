@@ -32,11 +32,51 @@ spec:
           volumeMounts:
             - name: {{ .Values.volumeMounts.name }}
               mountPath: {{ .Values.volumeMounts.mountPath }}
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              scheme: HTTP
+              path: /api/v1/authz/health_check
+              port: 80 
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              scheme: HTTP
+              path: /api/v1/authz/health_check
+              port: 80  
         - name: {{ include "authz.fullname" . }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              scheme: HTTP
+              path: /api/v1/authz/health_check
+              port: 5000  
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              scheme: HTTP
+              path: /api/v1/authz/health_check
+              port: 5000            
           env:
             {{- toYaml .Values.envs | nindent 12 }}
       volumes:
         - configMap:
-            name: {{ include "authz.name" . }}-{{ .Values.deployment.volume_configMap }}
-          name: {{ .Values.deployment.volume_configMap }}
+            name: {{ include "authz.name" . }}-nginx-config
+          name: nginx-config

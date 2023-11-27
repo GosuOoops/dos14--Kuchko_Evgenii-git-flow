@@ -72,12 +72,12 @@ envs:
   - name: PG_USER
     valueFrom:
       secretKeyRef:
-        key: PG_USER
+        key: username
         name: gigachad-db-creds
   - name: PG_PASSWORD
     valueFrom:
       secretKeyRef:
-        key: PG_PASSWORD
+        key: password
         name: gigachad-db-creds
 
 labels:

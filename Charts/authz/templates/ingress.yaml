@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-{{ .Release.Namespace }}-{{ include "bank.name" . }}
+  name: ingress-{{ .Release.Namespace }}-{{ include "authz.name" . }}
   namespace: {{ .Release.Namespace }}
   {{- with .Values.ingress.annotations }}
   annotations:
@@ -17,7 +17,7 @@ spec:
             pathType: {{ .Values.ingress.hosts.http.paths.pathType }}
             backend:
               service:
-                name: {{ include "bank.fullname" . }}-svc
+                name: {{ include "authz.fullname" . }}-svc
                 port:
                   number: {{ .Values.ingress.hosts.http.port }}
   tls:

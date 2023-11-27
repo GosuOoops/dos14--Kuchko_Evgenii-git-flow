@@ -48,6 +48,9 @@ Selector labels
 {{- define "authz.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "authz.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ .Values.labels.app }}
+bank: {{ .Values.labels.bank }}
+env: {{ .Values.labels.env }}
 {{- end }}
 
 {{/*

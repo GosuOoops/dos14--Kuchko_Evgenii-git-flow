@@ -34,7 +34,7 @@ ingress:
         pathType: ImplementationSpecific
       port: 80
   tls:
-    secretName: giga
+    secretName: gigachad
 resources: {}
 autoscaling:
   enabled: false

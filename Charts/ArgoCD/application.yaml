@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gigachad-authz
+  finalizers:
+    #- resources-finalizer.argocd.argoproj.io
+spec:
+  project: gigachad
+  source:
+    repoURL: 'https://github.com/GosuOoops/dos14--Kuchko_Evgenii-git-flow.git'
+    path: charts/authz
+    targetRevision: feature-helm-CD
+    helm:
+      valueFiles:
+        - /charts/authz/values_prd.yaml
+      releaseName: gigachad-authz
+  destination:
+    namespace: gigachad
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

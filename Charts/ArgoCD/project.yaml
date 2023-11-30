@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gigachad
+  namespace: gigachad
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # Project description
+  description: CD for gigachad apps
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+    - 'https://github.com/GosuOoops/dos14--Kuchko_Evgenii-git-flow.git'
+    - 'https://github.com/slambeat/dos14--zhuravel_dmitriy-git-flow.git'
+
+  # Only permit applications to deploy to the omegabank namespace in the same cluster
+  # Destination clusters can be identified by 'server', 'name', or both.
+  destinations:
+    - namespace: gigachad
+      server: '*'
+      name: '*'
+
+  # Allow all cluster-scoped resources from being created
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
